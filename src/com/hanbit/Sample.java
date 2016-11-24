@@ -9,7 +9,7 @@ public static void main(String[] args) {
 		//    단, {"January", ... "December"} 문법 제외
 		String[] monthNames = createMonthNameArray();
 		printArray(monthNames);
-		
+		// 나는 수현이를 사랑해
 	}
 	
 	static String[] createMonthNameArray() {
