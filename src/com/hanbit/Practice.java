@@ -10,6 +10,10 @@ public class Practice {
 		String[] monthNames = createMonthNameArray();
 		printArray(monthNames);
 		
+		
+		
+		
+		
 	}
 	
 	static String[] createMonthNameArray() {
