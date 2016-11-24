@@ -1,4 +1,4 @@
-package com.hanbit;
+package com.hanbit.day_11_24;
 
 public class ForExercise {
 	

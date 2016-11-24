@@ -2,7 +2,7 @@
 		
 		
 		
-		package com.hanbit;
+		package com.hanbit.day_11_23;
 
 public class ParameterExercise {
 

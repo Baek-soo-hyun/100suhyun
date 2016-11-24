@@ -1,6 +1,6 @@
-package com.hanbit;
+package com.hanbit.day_11_23;
 
-public class StudyFunctions {
+public class Statements {
 
 	public static void main(String[] args) {
 		
@@ -10,7 +10,7 @@ public class StudyFunctions {
 		// 2. 변수로 받은 월에 따라 영문 월명을 출력하세요.
 		//   ex: month = 1 -> January
 		//   ex: month = 2 -> February
-		int month = 1;
+		int month = 2;
 		printMonthName(month);
 		
 		// 3. 변수로 받는 년, 월에 따라 영문 월명과
@@ -27,24 +27,27 @@ public class StudyFunctions {
 		printMonthNameAndDays2(year, month);
 	}
 	
-	static void printMonthNameAndDays2(int year, int month) {
-		// 월의 영문 월명을 구한다.
-		String monthName = getMonthNameUsingIf(month);
-		// 년 월의 날짜 수를 구한다.
-		int days = getDaysOfMonth(year, month);
-		// 출력형식에 맞추어 출력한다.
-		// (단, 날짜 수가 31일이 아닐 경우에만 날짜 수를 출력하세요.)
-		String yearAndMonthName = year + "년 " + monthName;
-		
-		System.out.print(yearAndMonthName);
-		
-		if (days != 31) {
-			System.out.print(" (" + days + "일)");
-		}
-		
-		System.out.println();
-	}
 	
+	
+	static void printMonthNameAndDays2(int year, int month) {
+		// 변수로 받는 년, 월에 따라 영문 월명 출력
+		String monthName = getMonthNameUsingIf(month);
+		//    해당 년월의 날짜 수를 출력하세요.
+		int days = getDaysOfMonth(year, month);
+		//    (단, 날짜 수가 31일이 아닐 경우에만 날짜 수를 출력하세요.)
+		if (days != 31) {
+	}
+
+
+
+
+
+
+
+
+
+
+
 	static void printMonthNameAndDays(int year, int month) {
 		// 월의 영문 월명을 구한다.
 		String monthName = getMonthNameUsingIf(month);
