@@ -9,18 +9,15 @@ public class Sample {
 		//    단, {"January", ... "December"} 문법 제외
 		String[] monthNames = createMonthNameArray();
 		printArray(monthNames);
-		
-		
+				
 		// 2. 월명 배열의 각 글자 수를 배열로 만들어 반환하세요.
 		//  hint: int lengthOfString = "March".length();
 		int[] monthNamesLength = countMonthNamesLength(monthNames);
 		printArray(monthNamesLength);
 		
-
 		// 3. 월명이 5자 이하인 월명을 배열로 만들어 반환하세요.
 		String[] shortMonthNames = getShortMonthNames(monthNames);
 		printArray(shortMonthNames);
-		
 		
 		// 4. 월명이 5자 이하이면 월명을 배열에 넣고
 		//    6자 이상이면 "Long" 문자열을 넣어서 배열을 반환하세요.
@@ -28,7 +25,6 @@ public class Sample {
 		printArray(shortMonthNames);
 	}
 	
-
 
 	// 4. 월명이 5자 이하이면 월명을 배열에 넣고
 	//    6자 이상이면 "Long" 문자열을 넣어서 배열을 반환하세요.
@@ -46,7 +42,6 @@ public class Sample {
 	
 		return shortMonthNames;
 	}
-
 
 	// 3. 월명이 5자 이하인 월명을 배열로 만들어 반환하세요.
 	static String[] getShortMonthNames(String[] monthNames) {
@@ -70,8 +65,7 @@ public class Sample {
 	
 		return shortMonthNames;
 	}
-	
-		
+			
 	// 2. 월명 배열의 각 글자 수를 배열로 만들어 반환하세요.
 	//  hint: int lengthOfString = "March".length();
 	static int[] countMonthNamesLength(String[] monthNames) {
@@ -95,8 +89,6 @@ public class Sample {
 		}
 		System.out.println("]");
 	}
-	
-	
 	
 	// 1. 1월부터 12월까지 영문 월명을 담고있는
 	//    배열을 만들어 반환하세요.
@@ -131,6 +123,5 @@ public class Sample {
 		}
 		System.out.println("]");
 	}
-	
 
 }
