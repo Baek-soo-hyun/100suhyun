@@ -41,7 +41,7 @@ public static void main(String[] args) {
 		return shortMonthNames;
 	}
 
-	static String[] getShortMonthNames(String[] monthNames) {
+		static String[] getShortMonthNames(String[] monthNames) {
 		int countOfShortMonthName = 0;
 		
 		for (int i=0;i<monthNames.length;i++) {

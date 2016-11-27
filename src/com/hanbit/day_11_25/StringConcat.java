@@ -35,7 +35,7 @@ public class StringConcat {
 	 * !, @, #, $, % 만 체크합니다.
 	 */
 	static boolean checkSpecialCharacter(String str) {
-		if ("!".equals(str) | "@".equals(str) | "#".equals(str) | "$".equals(str) | "%".equals(str)) {
+		if ("!".equals(str) || "@".equals(str) || "#".equals(str) || "$".equals(str) || "%".equals(str)) {
 			return true;
 		}
 		return false;

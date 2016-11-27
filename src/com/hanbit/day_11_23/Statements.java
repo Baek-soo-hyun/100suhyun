@@ -32,19 +32,17 @@ public class Statements {
 	static void printMonthNameAndDays2(int year, int month) {
 		// 변수로 받는 년, 월에 따라 영문 월명 출력
 		String monthName = getMonthNameUsingIf(month);
+		String monthName2 = getMonthNameUsingArray(month);
 		//    해당 년월의 날짜 수를 출력하세요.
 		int days = getDaysOfMonth(year, month);
 		//    (단, 날짜 수가 31일이 아닐 경우에만 날짜 수를 출력하세요.)
 		if (days != 31) {
+			System.out.println(monthName2);
+			}
+		else {
+			System.out.println(monthName);
+		}
 	}
-
-
-
-
-
-
-
-
 
 
 

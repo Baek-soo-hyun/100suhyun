@@ -27,10 +27,10 @@ public class Calculator {
 	//       각 결과를 두번째 연산자로 계산하여 결과를 반환합니다.
 	// 예: calculateMore(3, 4, new String[] {"*", "+", "-"}) -> 11
 	
-	static int calculateMore(int x, int y, String[] operator) {
-		int result1 = caculate(x, y, operator[0]);
-		int result2 = caculate(x, y, operator[2]);
-		return caculate(result1, result2, operator[1]);
+	static int calculateMore(int x, int y, String[] operators) {
+		int result1 = caculate(x, y, operators[0]);
+		int result2 = caculate(x, y, operators[2]);
+		return caculate(result1, result2, operators[1]);
 	//	return calculateMore(x, y, operators[0], operators[1], operators[2]);
 	}
 	
