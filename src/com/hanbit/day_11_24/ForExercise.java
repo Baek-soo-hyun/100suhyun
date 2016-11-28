@@ -42,16 +42,15 @@ public class ForExercise {
 	//    두번째 수를 반환하는 함수를 작성하세요.
 	static int getSumComplex(int from, int to) {
 		int sum = 0;
-		if(from + to % 2 != 0) {
-			/* 여기서부터 */ 
-			for(int i = from ; i <= to ; i++) {
+		if ((from + to) % 2 != 0) {
+			/* 여기서부터 */
+			for (int i = from; i <= to; i++) {
 				sum += i;
 			}
-		return sum; 
-		/* 여기까지를 이미 구한 함수를 리턴하면 훨씬 간편 => return getSum; */ 
-		}
-		else if(from + to % 2 == 0) {
-		return to;
+			return sum;
+			/* 여기까지를 이미 구한 함수를 리턴하면 훨씬 간편 => return getSum; */
+		} else if ((from + to) % 2 == 0) {
+			return to;
 		}
 		return 0;
 	}
