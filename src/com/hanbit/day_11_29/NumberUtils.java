@@ -168,7 +168,9 @@ public class NumberUtils {
 		if (!isNumber(str)) {
 			return 0;
 		}
-
+		
+		
+		/** 새로운 캐릭터의 배열의 길이 구하기 (. 뒤에는 카운트X / -는 건너뛰고 카운트) */
 		char[] chars = str.toCharArray();
 		int newLength = 0;
 		boolean negative = false;
@@ -176,32 +178,39 @@ public class NumberUtils {
 		for (int i = 0; i < chars.length; i++) {
 			if (chars[i] == '.') {
 				break;
-			} else if (chars[i] == '-') {
+			} 
+			else if (chars[i] == '-') {
 				negative = true;
 				continue;
 			}
 			newLength++;
 		}
-
+		
+		
+		/** 음수 양수일 때의 배열의 시작점 초기화하기 (음수 일 때는 맨 앞을 -로 표기함) */
 		char[] newChars = new char[newLength];
 		int startPos = 0;
 		if (negative) {
 			startPos = 1;
 		}
-
+		
+		/** i = startPos 한다는 건 i번째 부터는 새로운 배열의 숫자가 들어간다는 것
+		// i < newChars.length + startPos 음수일 경우에는 startPos = 1 만큼 검사를 해야 함
+		// 새로운 배열의 각각의 인덱스의 글자를 구함  */
 		for (int i = startPos; i < newChars.length + startPos; i++) {
-			newChars[i - startPos] = chars[i];
+			newChars[i - startPos] = chars[i]; //"-123 => 123"이 됨, 나중에 -1을 해서 음수로 만들어 줄거임
 		}
-
-?????????????????????????????????????????????????????????????????????????????????????????
+		
+		/** 구한 결과값들을 더해 정수 형태로 변환
+		// 자리수를 계산해줌*/
 		int result = 0;
 		for (int i = 0; i < newChars.length; i++) {
 			char ch = newChars[i];
-			int pos = newChars.length - i;
+			int pos = newChars.length - i; // i 번째 다음으로 남은 배열의 길이
 			int num = 0;
 
 			if (ch == '0') {
-				continue;
+				continue; /** "0011" -> 11 */
 			} 
 			else if (ch == '1') {
 				num = 1;
@@ -232,14 +241,14 @@ public class NumberUtils {
 			}
 
 			for (int j = 1; j < pos; j++) {
-				num *= 10;
+				num *= 10; /** i번째 뒤에 남은 배열의 길이 만큼 10을 곱해주는 걸 반복 */
 			}
 
-			result += num;
+			result += num; /** result 뒤에 num을 더하면 num이 계속 result 값의 뒤로 붙음 */
 		}
 
 		if (negative) {
-			result *= -1;
+			result *= -1; /** 어떤 숫자든 -1를 곱하면 음수가 됨*/
 		}
 
 		return result;

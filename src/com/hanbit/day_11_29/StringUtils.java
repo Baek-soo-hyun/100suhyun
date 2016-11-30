@@ -49,7 +49,7 @@ public class StringUtils {
 		String reverseStr = "";
 		
 		for (int i=0;i<chars.length;i++) {
-			reverseStr = chars[i] + reverseStr;
+			reverseStr = chars[i] + reverseStr; /** result 값 앞으로 글자를 계속 붙이면 "역순으로 " 배열됨 */
 		}
 		
 		return reverseStr;
@@ -81,23 +81,24 @@ public class StringUtils {
 	 * 예3: isBlank("  ab   ") -> false
 	 */
 	static boolean isBlank(String str) {
-		// 문자열이 null 이면 true
+		/** 문자열이 null 이면 true */
 		if (str == null) {
 			return true;
 		}
 		
-		// 문자열의 각 문자가 하나라도 공백이 아니면 false
-		// 1. 문자열의 각 문자를 분리
+		/** 문자열의 각 문자가 하나라도 공백이 아니면 false
+		// 1. 문자열의 각 문자를 분리 */
 		char[] chars = str.toCharArray();
 		
-		// 2. 각 문자를 하나씩 공백인지 비교
+		/** 2. 각 문자를 하나씩 공백인지 비교
+		// 하나라도 공백이 아닌 게 나오면 false : ("  ab   ") -> false */
 		for (int i=0;i<chars.length;i++) {
 			if (!isWhitespace(chars[i])) {
 				return false;
 			}
 		}
 		
-		// 위 조건에 충족되지 않으면 true		
+		/** for 조건에 충족되지 않으면 true	*/
 		return true;
 	}
 	
@@ -110,6 +111,9 @@ public class StringUtils {
 	static boolean isWhitespace(char ch) {
 		
 		return ch == 32 || ch == 9 || ch == 13 || ch == 10;
+		/** boolean 은 조건 문장 자체를 return 해줘도 된다.
+		 * 왜냐하면, 조건 문장이 맞을 경우, 어차리 true이고, true로 return 되기 때문이다.
+		 */
 	}
 	
 	/*
