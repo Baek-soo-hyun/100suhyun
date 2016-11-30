@@ -221,7 +221,12 @@ public class StringUtils {
 			boolean match = true;
 			
 			if (chars[i] != rmChars[0]) {
-				match = false;
+				match = false; 
+				/**  만약 여기서 false(삭제할 첫문자랑 하나도 매치되는 게 하나도 없다)면, 
+				 * 다음 else로 가서  result += chars[i]; => 그냥 원래 문자가 반환되도록 함	
+				 * 만약 여기서 true(삭제할 첫문자랑 하나라도 매치되는 게 있다)면,
+				 * 다음 if로 가서 i += rmChars.length - 1; =>
+				 */
 			}
 			else if (chars.length - i < rmChars.length) {
 				match = false;
