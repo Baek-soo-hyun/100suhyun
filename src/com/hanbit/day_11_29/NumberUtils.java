@@ -1,37 +1,43 @@
 package com.hanbit.day_11_29;
 
 public class NumberUtils {
-	
+
 	public static void main(String[] args) {
 		int x = 8;
 		int y = 10;
 		
 		// compare 함수를 사용하여 결과값을 출력하세요.
 		// 출력: compare(x, y)의 결과는 ? 입니다.
-		String result = "compare(" + x + ", " + y + ")의 결과는 ";
+		String result = "compare(" + x + ", " + y + ")의 결과는 "; 
 		result += compare(x, y) + " 입니다.";
 		System.out.println(result);
-
+		
 		// isNumber 함수를 사용하여 다음 문자열이 숫자인지 출력하세요.
 		// 출력: ? 은 숫자입니다. / ? 은 숫자가 아닙니다.
 		String str = "-56.0";
+		
 		if (isNumber(str)) {
 			System.out.println(str + " 은 숫자입니다.");
-		} else {
+		}
+		else {
 			System.out.println(str + " 은 숫자가 아닙니다.");
 		}
-
+		
 		// max 함수를 사용하여 가장 큰 값을 구하시오.
 		// 출력: 가장 큰 수는 ? 입니다.
 		int[] numbers = new int[] {100, 39, 55, 193, 98};
+		System.out.println("가장 큰 수는 " + max(numbers) + " 입니다.");
+		
+		// min 함수를 사용하여 가장 큰 값을 구하시오.
+		// 출력: 가장 작은 수는 ? 입니다.
+		System.out.println("가장 작은 수는 " + min(numbers) + " 입니다.");
 		
 		// stringToInt 사용
 		System.out.println(stringToInt("-4584.9"));
+		
+		// plusStringValue 사용
+		System.out.println(plusStringValue("35", "47"));
 	}
-	
-	
-	
-	
 	
 	/*
 	 * 함수명: compare
@@ -47,13 +53,13 @@ public class NumberUtils {
 	static int compare(int left, int right) {
 		if (left > right) {
 			return 1;
-		} else if (left < right) {
+		}
+		else if (left < right) {
 			return -1;
 		}
+		
 		return 0;
 	}
-
-	
 	
 	/*
 	 * 함수명: isNumber
@@ -68,35 +74,38 @@ public class NumberUtils {
 		char[] chars = str.toCharArray();
 		boolean negative = false;
 		boolean hasPoint = false;
-
-		for (int i = 0; i < chars.length; i++) {
+		
+		for (int i=0;i<chars.length;i++) {
 			char ch = chars[i];
-
-			if (!(ch == '0' || ch == '1' || ch == '2' || ch == '3' || ch == '4' || ch == '5' || ch == '6' || ch == '7'
-					|| ch == '8' || ch == '9')) {
+			
+			if (!(ch == '0' || ch == '1' || ch == '2' || ch == '3' || ch == '4' || ch == '5'
+					|| ch == '6' || ch == '7' || ch == '8' || ch == '9')) {
 				if (i == 0 && ch == '-') {
 					negative = true;
 					continue;
 				}
+				
 				int pointMinPosition = 0;
+				
 				if (negative) {
 					pointMinPosition = 1;
 				}
+				
 				if (!hasPoint && i > pointMinPosition && ch == '.') {
 					if (i == chars.length - 1) {
 						return false;
 					}
+					
 					hasPoint = true;
 					continue;
 				}
+				
 				return false;
 			}
 		}
+		
 		return true;
 	}
-	
-	
-	
 	
 	/*
 	 * 함수명: max
@@ -110,16 +119,15 @@ public class NumberUtils {
 	 */
 	static int max(int[] numbers) {
 		int max = Integer.MIN_VALUE;
-		for (int i = 0; i < numbers.length; i++) {
+		
+		for (int i=0;i<numbers.length;i++) {
 			if (numbers[i] > max) {
 				max = numbers[i];
 			}
 		}
+		
 		return max;
 	}
-	
-	
-	
 	
 	/*
 	 * 함수명: min
@@ -133,16 +141,15 @@ public class NumberUtils {
 	 */
 	static int min(int[] numbers) {
 		int min = Integer.MAX_VALUE;
-		for (int i = 0; i < numbers.length; i++) {
+		
+		for (int i=0;i<numbers.length;i++) {
 			if (numbers[i] < min) {
 				min = numbers[i];
 			}
 		}
+		
 		return min;
 	}
-	
-	
-	
 	
 	/*
 	 * 함수명: stringToInt
@@ -154,6 +161,8 @@ public class NumberUtils {
 	 * 예2: stringToInt("0011") -> 11
 	 * 예3: stringToInt("9.9") -> 9
 	 * 예3: stringToInt("5시") -> 0
+	 * 예4: stringToInt("-123") -> -123
+	 * 예5: stringToInt("-1.23") -> -1
 	 */
 	static int stringToInt(String str) {
 		if (!isNumber(str)) {
@@ -171,13 +180,11 @@ public class NumberUtils {
 				negative = true;
 				continue;
 			}
-
 			newLength++;
 		}
 
 		char[] newChars = new char[newLength];
 		int startPos = 0;
-
 		if (negative) {
 			startPos = 1;
 		}
@@ -186,8 +193,8 @@ public class NumberUtils {
 			newChars[i - startPos] = chars[i];
 		}
 
+?????????????????????????????????????????????????????????????????????????????????????????
 		int result = 0;
-
 		for (int i = 0; i < newChars.length; i++) {
 			char ch = newChars[i];
 			int pos = newChars.length - i;
@@ -195,38 +202,48 @@ public class NumberUtils {
 
 			if (ch == '0') {
 				continue;
-			} else if (ch == '1') {
+			} 
+			else if (ch == '1') {
 				num = 1;
-			} else if (ch == '2') {
+			} 
+			else if (ch == '2') {
 				num = 2;
-			} else if (ch == '3') {
+			} 
+			else if (ch == '3') {
 				num = 3;
-			} else if (ch == '4') {
+			} 
+			else if (ch == '4') {
 				num = 4;
-			} else if (ch == '5') {
+			} 
+			else if (ch == '5') {
 				num = 5;
-			} else if (ch == '6') {
+			} 
+			else if (ch == '6') {
 				num = 6;
-			} else if (ch == '7') {
+			} 
+			else if (ch == '7') {
 				num = 7;
-			} else if (ch == '8') {
+			} 
+			else if (ch == '8') {
 				num = 8;
-			} else if (ch == '9') {
+			} 
+			else if (ch == '9') {
 				num = 9;
 			}
+
 			for (int j = 1; j < pos; j++) {
 				num *= 10;
 			}
+
 			result += num;
 		}
+
 		if (negative) {
 			result *= -1;
 		}
+
 		return result;
 	}
-	
-	
-	
 	
 	/*
 	 * 함수명: plusStringValue
@@ -238,7 +255,8 @@ public class NumberUtils {
 	 * 예2: plusStringValue("45", "5시") -> 45
 	 */
 	static int plusStringValue(String str1, String str2) {
+		
 		return stringToInt(str1) + stringToInt(str2);
 	}
-
+	
 }

@@ -230,7 +230,6 @@ public class StringUtils {
 					}
 				}
 			}
-			
 			if (match) {
 				i += rmChars.length - 1;
 			}
@@ -241,7 +240,4 @@ public class StringUtils {
 		
 		return result;
 	}
-	
-	
-	
 }
