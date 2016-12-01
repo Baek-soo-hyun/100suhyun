@@ -1,4 +1,4 @@
-package com.hanbit.day_11_25;
+package com.hanbit.utils;
 
 public class Calculator {
 

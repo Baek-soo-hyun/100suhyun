@@ -1,4 +1,4 @@
-package com.hanbit.day_11_24;
+package com.hanbit.utils;
 
 public class ForAndArray {
 

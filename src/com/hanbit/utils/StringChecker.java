@@ -1,4 +1,4 @@
-package com.hanbit.day_11_28;
+package com.hanbit.utils;
 
 public class StringChecker {
 	public static void main(String[] args) {
