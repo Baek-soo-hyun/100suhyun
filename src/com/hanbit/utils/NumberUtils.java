@@ -1,4 +1,4 @@
-package com.hanbit.day_11_29;
+package com.hanbit.utils;
 
 public class NumberUtils {
 

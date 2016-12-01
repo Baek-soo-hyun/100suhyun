@@ -1,4 +1,4 @@
-package com.hanbit.day_11_30;
+package com.hanbit.utils;
 
 public class StringUtils00 {
 	public static void main(String[] args) {
@@ -38,7 +38,9 @@ public class StringUtils00 {
 			return -1;
 		}
 		
+		// compare("abc", "ABC") -> ? 여기서 "ABC"를 더 큰값이라고 여기고 -1을 나오게 하려고 ignoreCase를 변수로 지정해두는 것
 		if (ignoreCase) {
+			// 두 매개변수를 동일한 함수로 돌려서 비교하기 쉽게 한가지 case로 통일시켜주는 것
 			left = toLowerCase(left);
 			right = toLowerCase(right);
 		}
@@ -47,17 +49,25 @@ public class StringUtils00 {
 		char[] rightChars = right.toCharArray();
 		
 		for (int i=0;i<leftChars.length;i++) {
+			//만약 left 매개 변수의 길이가 더 크면 무조건 왼쪽 변수 값이 큰거임 
 			if (i >= rightChars.length) {
 				return 1;
 			}
 			
 			if (leftChars[i] != rightChars[i]) {
+				// 만약 오른쪽이 더 큰 수라면, 음수 / 왼쪽이 더 큰 수라면 양수가 나올 게 뻔함
 				return leftChars[i] - rightChars[i];
 			}
 		}
 		
+		// 위에를 다 통과한다는 것은 두 매개변수를 어떤 case로 통일 시켜줬는데 문자도, 길이도 다 똑같다는 것임
+		// 그럴 경우에는 문자열의 길이가 더 큰 쪽이 더 큰 값임
 		return leftChars.length - rightChars.length;
 	}
+	
+	
+	
+	
 	
 	
 	/* compare 매소드 오버로딩
@@ -65,6 +75,7 @@ public class StringUtils00 {
 	static int compare(String left, String right) {
 		return compare(left, right, false);
 	}
+	
 	
 	
 	
@@ -109,6 +120,9 @@ public class StringUtils00 {
 	}
 	
 	
+	
+	
+	
 	/*
 	 * 함수명: toUpperCase
 	 * 매개변수: char ch
@@ -125,6 +139,9 @@ public class StringUtils00 {
 		
 		return ch;
 	}
+	
+	
+	
 	
 	/*
 	 * 함수명: toLowerCase
@@ -149,6 +166,9 @@ public class StringUtils00 {
 		
 		return result;
 	}
+	
+	
+	
 	
 	/*
 	 * 함수명: toUpperCase
@@ -175,6 +195,9 @@ public class StringUtils00 {
 		return result;
 	}
 	
+	
+	
+	
 	/*
 	 * 함수명: switchCase
 	 * 매개변수: String str
@@ -199,6 +222,8 @@ public class StringUtils00 {
 		
 		return result;
 	}
+	
+	
 	
 	/*
 	 * 함수명: contains
@@ -258,6 +283,8 @@ public class StringUtils00 {
 			
 			if (match) {
 				i += searchChars.length - 1;
+				//ismatch 함수 자체가 찾고자 하는 string과 같은 string 이 있는가를 확인하는 함수이니까
+				//만약 match 한다면 searchChars.length의 길이(찾고자 하는 string 묶음의 길이)만큼 건너뛰고 그 뒤에 또 있는지 찾으면 되니{까
 				countMatches++;
 			}
 		}
@@ -265,6 +292,13 @@ public class StringUtils00 {
 		return countMatches;
 	}
 	
+	
+	
+	
+	/*
+	 * 함수명: isMatch
+	 * 설명: 입력받은 문자열에 검색할 문자열이 포함되었는지 확인합니다.
+	 */
 	static boolean isMatch(char[] chars, char[] searchChars, int index) {
 		boolean match = true;
 		
@@ -285,6 +319,9 @@ public class StringUtils00 {
 		
 		return match;
 	}
+	
+	
+	
 	
 	/*
 	 * 함수명: indexOf
@@ -317,8 +354,6 @@ public class StringUtils00 {
 		
 		return -1;
 	}
-	
-	
 	
 	
 	
@@ -367,8 +402,8 @@ public class StringUtils00 {
 		return result;
 	}
 	
-	
-	
+
+
 	
 	
 	/*
@@ -386,7 +421,7 @@ public class StringUtils00 {
 	 * 예4: replace("hanbit", "NB", "nba", -1) -> "hanbit"
 	 * 예5: replace(null, null, null, -1) -> null
 	 */
-	static String replace(String str, String search, String replaceStr, int limit) {
+	static String replace(String str, String search, String replaceStr, final int limit) {
 		if (str == null) {
 			return null;
 		}
@@ -412,17 +447,18 @@ public class StringUtils00 {
 		for (int i=0;i<chars.length;i++) {
 			boolean match = true;
 			
-			if (_limit < 0 || _limit > 0) {
+			if (_limit < 0 || _limit > 0) /*_limit 제한이 0이다 == 0번 교체한다.*/{
 				match = isMatch(chars, searchChars, i);
 			}
-			else {
+			else /*_limit 제한이 0이다 == 0번 교체한다.*/{
 				match = false;
+				//다음 else로 넘어감 => chars[i]가 순차적으로 더해짐
 			}
 			
 			if (match) {
-				i += searchChars.length - 1;
-				result += replaceStr;
-				_limit--;
+				i += searchChars.length - 1; /* 다음번 i의 순서도 replaceStr된 길이만큼 건너 뛰어야 함 */
+				result += replaceStr; /* 결과값에다가 replaceStr를 더해줘야함 */
+				_limit--; /* _limit의 목숨이 1씩 줄어듦 */
 			}
 			else {
 				result += chars[i];
@@ -430,6 +466,7 @@ public class StringUtils00 {
 		}
 		
 		return result;
+
 	}
 	
 	
