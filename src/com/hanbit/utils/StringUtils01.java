@@ -1,5 +1,4 @@
-?????????????????????????????????????????????????????????????????????????????????????????????????????//
-		
+
 package com.hanbit.utils;
 
 public class StringUtils01 {
@@ -8,7 +7,7 @@ public class StringUtils01 {
 		System.out.println("trim" + " 함수 : " + "[" + StringUtils01.trim("   a  b  c   ") + "]");
 		System.out.println("leftTrim" + " 함수 : " + "[" + StringUtils01.leftTrim("   a  b  c   ") + "]");
 		System.out.println("rightTrim" + " 함수 : " + "[" + StringUtils01.rightTrim("   a  b  c   ") + "]");
-		System.out.println("removeWhitespace" + " 함수 : " + "[" + StringUtils01.removeWhitespace("   a  b  c   ") + "]");
+		System.out.println("removeWhitespace" + " 함수 : " + "[" + StringUtils01.removeWhitespace("a b ") + "]");
 		System.out.println("leftPad" + " 함수 : " + "[" + leftPad("abcd", 7, 'a') + "]");
 		System.out.println("rightPad" + " 함수 : " + "[" + rightPad("abcd", 7, 'a') + "]");
 	}
@@ -38,11 +37,14 @@ public class StringUtils01 {
 			result += ch;
 		}
 
-		chars = result.toCharArray();
+		chars = result.toCharArray(); //[abc   ]//
 		result = "";
 		for (int i = 0; i < chars.length; i++) {
-			char ch = chars[chars.length - 1 - i];
-			if (result.length() == 0 && StringUtils_cover.isWhitespace(ch)) {
+			char ch = chars[chars.length - 1 - i]; //i가 0일 때의 문자는 맨 뒤의 문자부터 시작한다.
+			//[chars.length - 1 - i] 0번째부터의 배열이니 -1을 해주고 for문이 돌 때마다 i는 커질테니,
+			//결국 [chars.length - 1 - i]의 index는 점점 작아질 거임 -> 결국, 맨 뒤의 문자부터 시작한다는 뜻
+			if (result.length() == 0 && StringUtils.isWhitespace(ch)) {
+				//result.length() == 0 -> 문자가 나올 때까지라는 뜻, 문자가 나오는 순간 해당 문자열의 길이는 1이 됨 
 				continue;
 			}
 			result = ch + result;
@@ -52,9 +54,12 @@ public class StringUtils01 {
 	
 	
 	/* trim을 rightTrim과 lefttTrim 함수를 이용해서 간단하게 짜보기
+	 * 
 	static String trim(final String str) { 
 	return lefttTrim(rightTrim(str));
+	-> rightTrim을 한 str을 다시 lefttTrim한다는 뜻
 	}	
+	
 	 */
 	
 	
@@ -78,7 +83,7 @@ public class StringUtils01 {
 		String result = "";
 		for (int i = 0; i < chars.length; i++) {
 			char ch = chars[chars.length - 1 - i];
-			if (result.length() == 0 && StringUtils_cover.isWhitespace(ch)) {
+			if (result.length() == 0 && StringUtils.isWhitespace(ch)) {
 				continue;
 			}
 			result = ch + result;
@@ -105,7 +110,7 @@ public class StringUtils01 {
 		char[] chars = str.toCharArray();
 		String result = "";
 		for (int i = 0; i < chars.length; i++) {
-			if (result.length() == 0 && StringUtils_cover.isWhitespace(chars[i])) {
+			if (result.length() == 0 && StringUtils.isWhitespace(chars[i])) {
 				continue;
 			}
 			result += chars[i];
@@ -120,9 +125,9 @@ public class StringUtils01 {
 	 * 함수명: removeWhitespace
 	 * 매개변수: String str
 	 * 리턴타입: String
-	 * 설명: 입력받은 문자열의 공백을 제거하고 반환합니다.
+	 * 설명: 입력받은 문자열의 "공백 == Whitespace"을 제거하고 반환합니다.
 	 * 예1: trim("   abc   ") -> "abc"
-	 * 예2: trim("a b ") -> "a b"
+	 * 예2: trim("a b ") -> "ab"
 	 * 예3: trim(null) -> null
 	 */
 	static String removeWhitespace(final String str) {
@@ -133,7 +138,7 @@ public class StringUtils01 {
 		char[] chars = str.toCharArray();
 		String result = "";
 		for (int i = 0; i < chars.length; i++) {
-			if (StringUtils_cover.isWhitespace(chars[i])) {
+			if (StringUtils.isWhitespace(chars[i])) {
 				continue;
 			}
 			result += chars[i];
@@ -161,13 +166,13 @@ public class StringUtils01 {
 		String result = "";
 		
 		for (int i=0;i<size-str.length();i++) {
-			result = ch + result;
+			result += ch;
 		}
 		
 		return result + str;
 	}
 	
-	/* repeat 함수를 이용해서 rightPad 함수를 간편하게 짜기
+	/* repeat 함수를 이용해서 leftPad 함수를 간편하게 짜기
 	static String leftPad(String str, int size, char ch) {
 		if (str == null || str.length() >= size) {
 			return str;
@@ -199,7 +204,7 @@ public class StringUtils01 {
 		
 		String result = "";
 		for (int i=0;i<size-str.length();i++) {
-			result = result + ch;
+			result += ch;
 		}
 		
 		return str + result;

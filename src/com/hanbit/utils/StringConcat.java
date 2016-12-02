@@ -19,8 +19,11 @@ public class StringConcat {
 	}
 
 	/*
-	 * 2. 함수명: concat 매개변수: String[] strings 리턴타입: String 설명: 입력받은 문자열 배열의 모든
-	 * 문자열을 합쳐서 반환합니다. 예: concat(new String[] {"이", "상", "윤"}) -> "이상윤"
+	 * 2. 함수명: concat 
+	 * 매개변수: String[] strings 
+	 * 리턴타입: String 
+	 * 설명: 입력받은 문자열 배열의 모든 문자열을 합쳐서 반환합니다. 
+	 * 예: concat(new String[] {"이", "상", "윤"}) -> "이상윤"
 	 */
 	static String concat(String[] strings) {
 		String result = "";
@@ -30,9 +33,12 @@ public class StringConcat {
 	}
 
 	/*
-	 * 3. 함수명: checkSpecialCharacter 매개변수: String str 리턴타입: boolean 설명: 입력받은
-	 * 문자열이 특수문자이면 true를 리턴한다. 예: checkSpecialCharacter("#") -> true 제약사항: 특수문자는
-	 * !, @, #, $, % 만 체크합니다.
+	 * 3. 함수명: checkSpecialCharacter 
+	 * 매개변수: String str 
+	 * 리턴타입: boolean 
+	 * 설명: 입력받은 문자열이 특수문자이면 true를 리턴한다.
+	 * 예: checkSpecialCharacter("#") -> true 
+	 * 제약사항: 특수문자는 !, @, #, $, % 만 체크합니다.
 	 */
 	static boolean checkSpecialCharacter(String str) {
 		if ("!".equals(str) || "@".equals(str) || "#".equals(str) || "$".equals(str) || "%".equals(str)) {
@@ -42,10 +48,13 @@ public class StringConcat {
 	}
 
 	/*
-	 * 4. 함수명: concatExcludeSpecialCharacter 매개변수: String[] strings 리턴타입: String
-	 * 설명: 입력받은 문자열 배열의 특수문자를 제외한 모든 문자열을 합쳐서 반환합니다. 예: concat(new String[]
-	 * {"이", "$", "상", "#", "*", "윤"}) -> "이상*윤" 제약사항: 특수문자는 !, @, #, $, % 만
-	 * 체크합니다.
+	 * 4. 함수명: concatExcludeSpecialCharacter
+	 * 매개변수: String[] strings
+	 * 리턴타입: String
+	 * 설명: 입력받은 문자열 배열의 특수문자를 제외한 모든 문자열을 합쳐서 반환합니다.
+	 * 예: concat(new String[]
+	 * {"이", "$", "상", "#", "*", "윤"}) -> "이상*윤"
+	 * 제약사항: 특수문자는 !, @, #, $, % 만 체크합니다.
 	 */
 	static String concatExcludeSpecialCharacter(String[] strings) {
 		String result = "";
@@ -60,9 +69,12 @@ public class StringConcat {
 	}
 
 	/*
-	 * 5. 함수명: concatUntilSharp 매개변수: String[] strings 리턴타입: String 설명: 입력받은 문자열
-	 * 배열의 모든 문자열을 합쳐서 반환합니다. 단, 문자열이 "#" 이면 더이상 합치지 않고 반환합니다. 예:
-	 * concatUntilSharp(new String[] {"이", "$", "상", "#", "*", "윤"}) -> "이$상"
+	 * 5. 함수명: concatUntilSharp
+	 * 매개변수: String[] strings
+	 * 리턴타입: String
+	 * 설명: 입력받은 문자열 배열의 모든 문자열을 합쳐서 반환합니다.
+	 * 단, 문자열이 "#" 이면 더이상 합치지 않고 반환합니다. 
+	 * 예: concatUntilSharp(new String[] {"이", "$", "상", "#", "*", "윤"}) -> "이$상"
 	 */
 	static String concatUntilSharp(String[] strings) {
 		String result = "";
@@ -77,9 +89,12 @@ public class StringConcat {
 	}
 
 	/*
-	 * 6. 함수명: concatUntilLSY 매개변수: String[] strings 리턴타입: String 설명: 입력받은 문자열
-	 * 배열의 모든 문자열을 합쳐서 반환합니다. 단, 합쳐진 문자열이 "이상윤" 이면 더이상 합치지 않고 반환합니다. 예:
-	 * concatUntilLSY(new String[] {"이", "상", "윤", "#", "*"}) -> "이상윤"
+	 * 6. 함수명: concatUntilLSY
+	 * 매개변수: String[] strings
+	 * 리턴타입: String
+	 * 설명: 입력받은 문자열 배열의 모든 문자열을 합쳐서 반환합니다.
+	 * 단, 합쳐진 문자열이 "이상윤" 이면 더이상 합치지 않고 반환합니다.
+	 * 예: concatUntilLSY(new String[] {"이", "상", "윤", "#", "*"}) -> "이상윤"
 	 */
 	static String concatUntilLSY(String[] strings) {
 		String result = "";
@@ -94,10 +109,13 @@ public class StringConcat {
 	}
 
 	/*
-	 * 7. 함수명: concatExcludeSpecialCharacterUntilPlus 매개변수: String[] strings
-	 * 리턴타입: String 설명: 입력받은 문자열 배열의 특수문자를 제외한 모든 문자열을 합쳐서 반환합니다. 단, 문자열이 "+" 이면
-	 * 더이상 합치지 않고 반환합니다. 예: concat(new String[] {"이", "$", "상", "#", "+", "윤"})
-	 * -> "이상" 제약사항: 특수문자는 !, @, #, $, % 만 체크합니다.
+	 * 7. 함수명: concatExcludeSpecialCharacterUntilPlus
+	 * 매개변수: String[] strings
+	 * 리턴타입: String
+	 * 설명: 입력받은 문자열 배열의 특수문자를 제외한 모든 문자열을 합쳐서 반환합니다.
+	 * 단, 문자열이 "+" 이면 더이상 합치지 않고 반환합니다.
+	 * 예: concat(new String[] {"이", "$", "상", "#", "+", "윤"})  -> "이상"
+	 * 제약사항: 특수문자는 !, @, #, $, % 만 체크합니다.
 	 */
 	static String concatExcludeSpecialCharacterUntilPlus(String[] strings) {
 		String result = "";
