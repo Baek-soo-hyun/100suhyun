@@ -174,7 +174,8 @@ public class StringChecker {
 	 */
 	static int lastIndexOf(String str, char ch) {
 		char[] chars = str.toCharArray();
-		for (int i = chars.length - 1; i >= 0; i--) {
+		for (int i = chars.length - 1; i >= 0; i--)  // 뒤에서부터 비교하고 싶을 때
+		{
 			if (chars[i] == ch) {
 				return i;
 			}
